@@ -13,7 +13,7 @@ mongoose.connect(
 		server.listen(PORT, () => {
 			console.log("");
 			console.log("######################################");
-			console.log("######### EFIGEN API CHATAPP #########");
+			console.log("########## GCC API CHATAPP ###########");
 			console.log("######################################");
 			console.log("");
 			console.log(
