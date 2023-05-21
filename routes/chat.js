@@ -4,4 +4,6 @@ import { mdAuth } from "../middlewares/index.js";
 
 const api = express.Router();
 
+api.post("/chat", [mdAuth.asureAuth], ChatController.create);
+
 export const chatRoutes = api;
