@@ -1,3 +1,4 @@
+import { restart } from "nodemon";
 import { Chat } from "../models/index.js";
 
 //funtion...
@@ -31,6 +32,19 @@ const create = async (req, res) => {
 	return res;
 };
 
+const getAll = async (req, res)=>{
+                                  
+	const {user_id} = req.user;
+	
+	Chat.find({
+		$or: [{participant_one:user_id}, {participant_two: user_id}]
+	}).exec(async () =>{
+		return (!error) ? restart.status(200).send(chats):res.status(400).send({msg:"Este Chant no esta creado"})
+	})
+
+}
+
 export const ChatController = {
 	create,
+	getAll
 };
